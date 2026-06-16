@@ -1,216 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Husik Martirosyan</title>
+"use client";
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+import { motion } from "framer-motion";
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      background: #ffffff;
-      color: #111;
-      line-height: 1.7;
-    }
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0 }
+};
 
-    .wrap {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 90px 24px;
-    }
+export default function Home() {
+  return (
+    <main style={{ fontFamily: "system-ui", color: "#111" }}>
 
-    /* HERO */
-    .hero h1 {
-      font-size: 48px;
-      font-weight: 500;
-      letter-spacing: -1px;
-      margin: 0;
-    }
-
-    .hero p {
-      margin-top: 16px;
-      font-size: 18px;
-      color: #444;
-      max-width: 700px;
-    }
-
-    .contact {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #666;
-    }
-
-    /* SECTIONS */
-    .section {
-      margin-top: 90px;
-    }
-
-    .label {
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #999;
-      margin-bottom: 20px;
-    }
-
-    .text {
-      font-size: 16px;
-      color: #222;
-      max-width: 750px;
-    }
-
-    /* EXPERIENCE */
-    .item {
-      margin-bottom: 45px;
-    }
-
-    .title {
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 5px;
-    }
-
-    .meta {
-      font-size: 13px;
-      color: #777;
-      margin-bottom: 10px;
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 18px;
-    }
-
-    li {
-      margin-bottom: 6px;
-    }
-
-    /* GRID */
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-
-    @media (max-width: 700px) {
-      .hero h1 { font-size: 34px; }
-      .grid { grid-template-columns: 1fr; }
-      .wrap { padding: 60px 18px; }
-    }
-
-    a { color: inherit; }
-  </style>
-</head>
-
-<body>
-
-<div class="wrap">
-
-  <!-- HERO -->
-  <div class="hero">
-    <h1>Husik Martirosyan</h1>
-    <p>
-      Educational leader and systems practitioner working at the intersection of
-      policy, school transformation, and leadership development.
-    </p>
-    <div class="contact">
-      Yerevan, Armenia · +374 93 051407 · husiktfa@gmail.com · LinkedIn
-    </div>
-  </div>
-
-  <!-- ABOUT -->
-  <div class="section">
-    <div class="label">About</div>
-    <div class="text">
-      I work with schools, educators, and institutions to design and implement
-      learning systems that strengthen leadership capacity, student agency, and
-      educational equity. My focus is on long-term systems change through
-      collaboration, data-informed decision-making, and leadership development.
-    </div>
-  </div>
-
-  <!-- EXPERIENCE -->
-  <div class="section">
-    <div class="label">Experience</div>
-
-    <div class="item">
-      <div class="title">School Turnaround Officer — TFA Seroond Catalyst</div>
-      <div class="meta">2025 – 2026</div>
-      <ul>
-        <li>Led school turnaround implementation across three public schools</li>
-        <li>Integrated SEL into school culture and instructional practice</li>
-        <li>Designed professional learning for educators and parents</li>
-        <li>Built cross-stakeholder collaboration models</li>
-      </ul>
-    </div>
-
-    <div class="item">
-      <div class="title">Head of Region — Teach For Armenia</div>
-      <div class="meta">2021 – 2024</div>
-      <ul>
-        <li>Led regional strategy across 4 marzes</li>
-        <li>Managed 75 Teacher-Leaders and 8 direct reports</li>
-        <li>Expanded program impact to 14,000 students</li>
-        <li>Built government and donor partnerships</li>
-      </ul>
-    </div>
-
-    <div class="item">
-      <div class="title">Senior Leadership Development Manager</div>
-      <div class="meta">2019 – 2021</div>
-      <ul>
-        <li>Coached and developed 35 Teacher-Leaders</li>
-        <li>Built data systems for program monitoring</li>
-        <li>Led leadership development frameworks</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <!-- OTHER -->
-  <div class="section">
-    <div class="label">Other Experience</div>
-    <div class="text">
-      Boston City Hall Fellowship (U.S. Dept. of State), Israel Teaching Fellowship,
-      NGO project leadership (2012–2018)
-    </div>
-  </div>
-
-  <!-- EDUCATION -->
-  <div class="section">
-    <div class="label">Education</div>
-    <div class="text">
-      MA Pedagogy — Shirak State University<br>
-      MA Public Administration — Vanadzor State University<br>
-      BA Management — Vanadzor State University
-    </div>
-  </div>
-
-  <!-- SKILLS -->
-  <div class="section">
-    <div class="label">Skills</div>
-
-    <div class="grid">
-      <div class="text">
-        Program Leadership<br>
-        Policy Design<br>
-        Stakeholder Engagement<br>
-        Facilitation
+      {/* NAV */}
+      <div style={{
+        position: "fixed",
+        top: 0,
+        width: "100%",
+        padding: "20px 40px",
+        display: "flex",
+        justifyContent: "space-between",
+        fontSize: "14px",
+        background: "rgba(255,255,255,0.8)",
+        backdropFilter: "blur(10px)"
+      }}>
+        <div>Husik Martirosyan</div>
+        <div style={{ display: "flex", gap: "20px" }}>
+          <span>About</span>
+          <span>Experience</span>
+          <span>Impact</span>
+          <span>Contact</span>
+        </div>
       </div>
 
-      <div class="text">
-        Microsoft / Google Workspace<br>
-        Salesforce / Asana / Jira<br>
-        Data-informed decision making<br>
-        AI tools
-      </div>
-    </div>
-  </div>
+      {/* HERO */}
+      <section style={{
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "0 24px",
+        position: "relative",
+        overflow: "hidden"
+      }}>
 
-</div>
+        {/* background image layer */}
+        <div style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: "url('https://images.unsplash.com/photo-1523240795612-9a054b0db644')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: "brightness(0.4)"
+        }} />
 
-</body>
-</html>
+        {/* content */}
+        <div style={{
+          position: "relative",
+          zIndex: 2,
+          maxWidth: "900px",
+          color: "white"
+        }}>
+
+          <h1 style={{
+            fontSize: "76px",
+            fontWeight: 400,
+            letterSpacing: "-2px",
+            lineHeight: 1.05
+          }}>
+            Husik Martirosyan
+          </h1>
+
+          <p style={{
+            fontSize: "22px",
+            marginTop: "20px",
+            maxWidth: "700px",
+            opacity: 0.9
+          }}>
+            Educational systems leader working at the intersection of leadership,
+            policy, and large-scale school transformation.
+          </p>
+
+          <p style={{
+            marginTop: "20px",
+            fontSize: "14px",
+            opacity: 0.7
+          }}>
+            Yerevan · Education Systems · Leadership · Policy
+          </p>
+
+        </div>
+
+      </section>
+
+      {/* IMPACT */}
+      <section style={{ padding: "140px 40px", background: "#f6f6f6" }}>
+        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+
+          <h2 style={{ fontSize: "12px", letterSpacing: "3px", color: "#999" }}>
+            IMPACT
+          </h2>
+
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "30px",
+            fontSize: "18px",
+            marginTop: "30px"
+          }}>
+            <div>14,000+ students impacted</div>
+            <div>75 educators coached</div>
+            <div>4 regions of Armenia</div>
+            <div>Government + NGO partnerships</div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section style={{
+        padding: "140px 40px",
+        textAlign: "center",
+        background: "#111",
+        color: "white"
+      }}>
+        <h2 style={{ fontSize: "12px", letterSpacing: "3px", color: "#aaa" }}>
+          CONTACT
+        </h2>
+
+        <p style={{ fontSize: "20px", marginTop: "20px" }}>
+          husiktfa@gmail.com · LinkedIn · Armenia
+        </p>
+      </section>
+
+    </main>
+  );
+}
